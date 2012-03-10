@@ -1,23 +1,22 @@
 # Your Arduino environment.
-ARD_REV = 22
-# # For Arduino 1.0
-# ARD_REV = 100
-ARD_HOME = /Applications/Development/Arduino.app/Contents/Resources/Java
-AVR_HOME = $(ARD_HOME)/hardware/tools/avr
-ARD_BIN = $(AVR_HOME)/bin
-AVRDUDE = $(ARD_BIN)/avrdude
-AVRDUDE_CONF = $(AVR_HOME)/etc/avrdude.conf
+# ARD_REV = 22
+# For Arduino 1.0
+ARD_REV = 100
+ARD_HOME = /usr/share/arduino
+ARD_BIN = /usr/bin
+AVRDUDE = /usr/bin/avrdude
+AVRDUDE_CONF = /etc/avrdude.conf
 
 # Your favorite serial monitor.
 MON_CMD = screen
 MON_SPEED = 9600
 
 # Board settings.
-BOARD = uno
-PORT = /dev/tty.usbmodemfa131
-PROGRAMMER = stk500v1
-# # For Arduino 1.0
-# PROGRAMMER = stk500v2
+BOARD = atmega328
+PORT = /dev/ttyUSB0
+# PROGRAMMER = stk500v1
+# For Arduino 1.0
+PROGRAMMER = stk500v2
 
 # Where to find header files and libraries.
 INC_DIRS = ./inc
