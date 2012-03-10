@@ -105,6 +105,7 @@ MON_SPEED ?= 57600
 MON_CMD ?= picocom
 PORT ?= /dev/tty.usbserial-A60061a3
 BOARD ?= atmega328
+ARD_VAR_TYPE ?= standard
 
 ### Nothing below here should require editing. ###
 
@@ -121,6 +122,7 @@ endif
 ARD_BOARDS = $(ARD_HOME)/hardware/arduino/boards.txt
 ARD_SRC_DIR = $(ARD_HOME)/hardware/arduino/cores/arduino
 ARD_MAIN = $(ARD_SRC_DIR)/main.cpp
+ARD_VAR_SRC_DIR = $(ARD_HOME)/hardware/arduino/variants/$(ARD_VAR_TYPE)
 
 # Standard macros.
 SKETCH = $(notdir $(CURDIR))
@@ -149,7 +151,8 @@ LN = ln -f
 
 # Compiler flags.
 INC_FLAGS = \
-    $(addprefix -I,$(INC_DIRS)) $(addprefix -I,$(LIB_DIRS)) -I$(ARD_SRC_DIR)
+    $(addprefix -I,$(INC_DIRS)) $(addprefix -I,$(LIB_DIRS)) -I$(ARD_SRC_DIR) \
+    -I$(ARD_VAR_SRC_DIR)
 ARD_FLAGS = -mmcu=$(MCU) -DF_CPU=$(F_CPU) -DARDUINO=$(ARD_REV)
 C_CXX_FLAGS = \
     -Wall -Wextra -Wundef -Wno-unused-parameter \
