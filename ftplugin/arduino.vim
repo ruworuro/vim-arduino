@@ -12,9 +12,9 @@ let b:vim_arduino = 1
 set autowrite
 set switchbuf=usetab
 
-imap <F9> <ESC>:!make<CR>
-map <F9> :!make<CR>
-map <F2> GoDate: <Esc>:read !date<CR>
+" imap <F9> <ESC>:!make<CR>
+" map <F9> :!make<CR>
+" map <F2> GoDate: <Esc>:read !date<CR>
 
 setlocal errorformat^=\%-G../libraries\%.\%#,\%-G../../libraries\%.\%#,%-G/Applications/Development/Arduino.app/Contents/Resources/Java\%.\%#
 
