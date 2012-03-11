@@ -252,7 +252,7 @@ $(BUILD_DIR) :
 	$(MKDIR) $@
 
 $(SKT_PDE_OBJ) : $(SKT_PDE_SRC)
-	echo '#include <WProgram.h>' > $(BUILD_DIR)/$(SKETCH)_pde.cpp
+	echo '#include <Arduino.h>' > $(BUILD_DIR)/$(SKETCH)_pde.cpp
 	echo '#include "$(SKT_PDE_SRC)"' >> $(BUILD_DIR)/$(SKETCH)_pde.cpp
 	$(LN) $(SKT_PDE_SRC) $(BUILD_DIR)/$(SKT_PDE_SRC)
 	cd $(BUILD_DIR) && $(CXX) -c $(subst build/,,$(CXX_FLAGS)) \
