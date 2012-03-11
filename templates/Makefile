@@ -16,7 +16,7 @@ BOARD = atmega328
 PORT = /dev/ttyUSB0
 # PROGRAMMER = stk500v1
 # For Arduino 1.0
-PROGRAMMER = stk500v2
+PROGRAMMER = arduino
 
 # Where to find header files and libraries.
 INC_DIRS = ./inc
@@ -297,8 +297,8 @@ upload : all
 # This works under my testing on OSx Lion
 	- ps -ea | grep '$(PORT)' | sed '/grep/d' | awk '{print $$1}' | xargs kill -9
 	- sleep 1
-	- stty -f $(PORT) hupcl
-	- $(AVRDUDE) -V -C$(AVRDUDE_CONF) -p$(MCU) -c$(PROGRAMMER) \
+	- stty -F $(PORT) hupcl
+	- $(AVRDUDE) -V -v -C$(AVRDUDE_CONF) -p$(MCU) -c$(PROGRAMMER) \
 	  -P$(PORT) -b$(UPLOAD_SPEED) -D -Uflash:w:$(IMAGE).hex:i
 
 monitor :
