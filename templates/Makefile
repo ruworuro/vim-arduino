@@ -156,7 +156,7 @@ INC_FLAGS = \
 ARD_FLAGS = -mmcu=$(MCU) -DF_CPU=$(F_CPU) -DARDUINO=$(ARD_REV)
 C_CXX_FLAGS = \
     -Wall -Wextra -Wundef -Wno-unused-parameter \
-    -fdiagnostics-show-option -g -Wa,-adhlns=$(BUILD_DIR)/$*.lst 
+    -fdiagnostics-show-option -g -Wa,-adhlns=$(BUILD_DIR)/$*.lst
 C_FLAGS = \
     $(C_CXX_FLAGS) -std=gnu99 -Wstrict-prototypes -Wno-old-style-declaration
 CXX_FLAGS = $(C_CXX_FLAGS)
@@ -192,7 +192,7 @@ $(ARD_AR)(Tone.o) : CXX_FLAGS += -w
 LIB_C_SRC = $(foreach ld,$(LIB_DIRS),$(wildcard $(ld)/*.c))
 LIB_CXX_SRC = $(foreach ld,$(LIB_DIRS),$(wildcard $(ld)/*.cpp))
 LIB_SRC = $(LIB_C_SRC) $(LIB_CXX_SRC)
-ifneq "$(strip $(LIB_C_SRC) $(LIB_CXX_SRC))" "" 
+ifneq "$(strip $(LIB_C_SRC) $(LIB_CXX_SRC))" ""
 	LIB_C_OBJ = $(patsubst %.c,%.o,$(notdir $(LIB_C_SRC)))
 	LIB_CXX_OBJ = $(patsubst %.cpp,%.o,$(notdir $(LIB_CXX_SRC)))
 	LIB_LIB = library
@@ -294,8 +294,8 @@ upload : all
 #	- pkill -f '$(MON_CMD).*$(PORT)'
 #	- killall -m '$(MON_CMD).*$(PORT)'
 # I'm on a mac and I want to use a default system method of killing the process.
-# This works under my testing on OSx Lion	
-	- ps -ea | grep '$(PORT)' | sed '/grep/d' | awk '{print $$1}' | xargs kill -9 
+# This works under my testing on OSx Lion
+	- ps -ea | grep '$(PORT)' | sed '/grep/d' | awk '{print $$1}' | xargs kill -9
 	- sleep 1
 	- stty -f $(PORT) hupcl
 	- $(AVRDUDE) -V -C$(AVRDUDE_CONF) -p$(MCU) -c$(PROGRAMMER) \
