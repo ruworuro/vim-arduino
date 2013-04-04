@@ -23,9 +23,9 @@ nnoremap <Leader>a2 :!clear && make upload PORT=/dev/ttyACM2<CR>
 setlocal errorformat^=\%-G../libraries\%.\%#,\%-G../../libraries\%.\%#,%-G/Applications/Development/Arduino.app/Contents/Resources/Java\%.\%#
 
 
-" Very simple 
+" Very simple
 function! s:ArduinoMakeFile()
-  
+
   :tabe Makefile
   :r ~/.vim/bundle/vim-arduino/templates/Makefile
   :w!
