@@ -12,9 +12,13 @@ let b:vim_arduino = 1
 set autowrite
 set switchbuf=usetab
 
-" imap <F9> <ESC>:!make<CR>
-" map <F9> :!make<CR>
-" map <F2> GoDate: <Esc>:read !date<CR>
+nnoremap <Leader>ac :!clear && make<CR>
+nnoremap <Leader>au :!clear && make upload<CR>
+nnoremap <Leader>as :!clear && make monitor<CR>
+
+nnoremap <Leader>a0 :!clear && make upload PORT=/dev/ttyACM0<CR>
+nnoremap <Leader>a1 :!clear && make upload PORT=/dev/ttyACM1<CR>
+nnoremap <Leader>a2 :!clear && make upload PORT=/dev/ttyACM2<CR>
 
 setlocal errorformat^=\%-G../libraries\%.\%#,\%-G../../libraries\%.\%#,%-G/Applications/Development/Arduino.app/Contents/Resources/Java\%.\%#
 
